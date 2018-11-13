@@ -4,23 +4,6 @@ is being fetched from [Foursquare third party API](#thirt-party-apis). You can f
 the text filter section and the map markers & place listings will be updated on real-time based on the
 input text. Also you will be able to get the details about each place by selecting the place from the
 listing or by clicking on the individual map markers.
-
-## Table of Contents
-
-- [Getting Started](#getting-started)
-- [Project URL](#project-url)
-- [Create React App](#create-react-app)
-- [Folder Structure](#folder-structure)
-- [Prerequisites](#prerequisites)
-- [How to launch the app locally](#how-to-launch-the-app-locally)
-  - [Installation](#installation)
-- [Deploy to gh-pages](#deploy-to-gh-pages)
-- [Offline Use and Service Worker](#offline-use-and-service-worker)
-- [Thirt Party APIs](#thirt-party-apis)
-- [Resources](#resources)
-- [Author](#author)
-- [Acknowledgments](#acknowledgments)
-
 ## Getting Started
 
 You need to set up the application before you can see it running live in your browser.
@@ -29,8 +12,6 @@ Please check the [installation](#how-to-launch-the-app-locally) section to know 
 ## Project URL
 
 - https://gauravsinghaec.github.io/FEND-Neighborhood-Map-React/
-
-![image](https://user-images.githubusercontent.com/15084301/44168788-00c05500-a0f0-11e8-8170-f67c4426d36a.png)
 
 ## Create React App
 
@@ -64,40 +45,13 @@ Your project folder should look like this:
 
 ### Installation
 
-1. Clone the Project - `https://github.com/gauravsinghaec/FEND-Neighborhood-Map-React.git`
-2. Go into the directory where the project now lives - `cd FEND-Neighborhood-Map-React`
+1. Clone the Project - `https://github.com/praveen-me/neighbourhood-map_FEND.git`
+2. Go into the directory where the project now lives - `cd neighbourhood-map_FEND`
 3. Install the dependencies - `npm install`
 4. Start the app - `npm start`
 ```
-The application will be running at http://localhost:8000 URL
+The application will be running at http://localhost:3000 URL
 ```
-
-## Deploy to gh-pages
-1. Add the following scripts in your package.json and also add the "homepage":<your to be created github page>
-
-  "homepage": "https://<github-username>.github.io/<gitHubRepo>",
-
-  "scripts": {
-  +  "predeploy": "npm run build",
-  +  "deploy": "gh-pages -d build",
-  }
-
-2. Install the gh-pages module to create gh-pages branch on github during deployment.
-```
->>>npm install --save gh-pages
-```
-
-3. Deploy the app - Below command is used to deploy the React app to the gh-pages but before that we need few pre-requisite.
-```
->>>npm run deploy
-```
-
-4. Now there will be a new branch in your GitHub repo "gh-pages" where the build files will be present and
-do check the gh-pages section in GitHub repo setting to see the hosted URL.
-
-
-* You can get all the info about [deployment here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#deployment). Also don't forget to check the [Resources](#resources) below.
-
 ## Offline Use and Service Worker
 By default, the create-react-app includes a service worker in the production build.
 Do check the below steps to see service worker in action after production build
