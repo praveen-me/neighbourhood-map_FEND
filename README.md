@@ -11,7 +11,7 @@ Please check the [installation](#how-to-launch-the-app-locally) section to know 
 
 ## Project URL
 
-- https://gauravsinghaec.github.io/FEND-Neighborhood-Map-React/
+- https://github.com/praveen-me/neighbourhood-map_FEND
 
 ## Create React App
 
