@@ -1,44 +1,154 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Neighborhood Map React Project
+This project is developed using Google Map API and React. The initial location data (to load onto the map)
+is being fetched from [Foursquare third party API](#thirt-party-apis). You can filter the location from
+the text filter section and the map markers & place listings will be updated on real-time based on the
+input text. Also you will be able to get the details about each place by selecting the place from the
+listing or by clicking on the individual map markers.
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+- [Getting Started](#getting-started)
+- [Project URL](#project-url)
+- [Create React App](#create-react-app)
+- [Folder Structure](#folder-structure)
+- [Prerequisites](#prerequisites)
+- [How to launch the app locally](#how-to-launch-the-app-locally)
+  - [Installation](#installation)
+- [Deploy to gh-pages](#deploy-to-gh-pages)
+- [Offline Use and Service Worker](#offline-use-and-service-worker)
+- [Thirt Party APIs](#thirt-party-apis)
+- [Resources](#resources)
+- [Author](#author)
+- [Acknowledgments](#acknowledgments)
 
-### `npm start`
+## Getting Started
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+You need to set up the application before you can see it running live in your browser.
+Please check the [installation](#how-to-launch-the-app-locally) section to know more.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## Project URL
 
-### `npm test`
+- https://gauravsinghaec.github.io/FEND-Neighborhood-Map-React/
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![image](https://user-images.githubusercontent.com/15084301/44168788-00c05500-a0f0-11e8-8170-f67c4426d36a.png)
 
-### `npm run build`
+## Create React App
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app). You can find more information on how to perform common tasks [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+## Folder Structure
+Your project folder should look like this:
+```
+├── README.md - This file.
+├── package.json # npm package manager file. It's unlikely that you'll need to modify this.
+├── .eslintrc.json # eslint configuration settings
+├── public
+│   ├── favicon.ico # React Icon,
+│   └── index.html # DO NOT MODIFY
+├── build It contains the production ready code
+└── src
+    ├── App.css # Styles for your app.
+    ├── App.js # This is the root of the app.
+    ├── GoogleMap.js # React Map component
+    ├── PlaceList.js # React place list component
+    ├── Toggle.js # A React component for hamburger menu
+    ├── registerServiceWorker.js # registers service worker in production environment
+    ├── index.css # Global styles.
+    └── index.js # It is used for DOM rendering only.
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Prerequisites
+* ES6, Promises, REACT, Service Worker, A11y
 
-### `npm run eject`
+## How to launch the app locally?
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Installation
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Clone the Project - `https://github.com/gauravsinghaec/FEND-Neighborhood-Map-React.git`
+2. Go into the directory where the project now lives - `cd FEND-Neighborhood-Map-React`
+3. Install the dependencies - `npm install`
+4. Start the app - `npm start`
+```
+The application will be running at http://localhost:8000 URL
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Deploy to gh-pages
+1. Add the following scripts in your package.json and also add the "homepage":<your to be created github page>
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+  "homepage": "https://<github-username>.github.io/<gitHubRepo>",
 
-## Learn More
+  "scripts": {
+  +  "predeploy": "npm run build",
+  +  "deploy": "gh-pages -d build",
+  }
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+2. Install the gh-pages module to create gh-pages branch on github during deployment.
+```
+>>>npm install --save gh-pages
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+3. Deploy the app - Below command is used to deploy the React app to the gh-pages but before that we need few pre-requisite.
+```
+>>>npm run deploy
+```
+
+4. Now there will be a new branch in your GitHub repo "gh-pages" where the build files will be present and
+do check the gh-pages section in GitHub repo setting to see the hosted URL.
+
+
+* You can get all the info about [deployment here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#deployment). Also don't forget to check the [Resources](#resources) below.
+
+## Offline Use and Service Worker
+By default, the create-react-app includes a service worker in the production build.
+Do check the below steps to see service worker in action after production build
+
+1. Build the app to generate production version and test.
+```
+npm run build
+```
+3. Static Server - Set up your favorite HTTP server so that a visitor to your site is served index.html.
+   For environments using Node, the easiest way to handle this would be to install `serve` and let it handle the rest:
+```
+>>>npm install –g serve
+>>>serve –s build
+```
+
+4. Service Worker running in the browser.
+
+5. Service Worker caching main.{hash}.js, main.{hash}.js and index.html for offline access.
+
+
+## Thirt Party APIs
+* Foursquare API
+	We are loading the neighbouring locations for a given place (using its lattitude, longitude)
+	from this API. The places received are shown in the place listing and hence on the Map.
+```
+Foursquare fetch API url
+"https://api.foursquare.com/v2/venues/search?ll=32.2190,76.3234&client_id=<YOUR_CLIENT_ID>&client_secret=<YOUR_CLIENT_SECRET>&limit=25&v=20180707"
+
+Here I am using Dharmhala Coordinate 32.2190° N, 76.3234° E to get the neighboring locations
+```
+
+* Wiki API
+	We are fetching the wiki data from this API about each place and hence showing in the infowindow
+	when marker is clicked on the map.
+```
+Wiki fetch API url
+"https://en.wikipedia.org/w/api.php?&origin=*&action=opensearch&search=Belgium&limit=5"
+```
+
+## Resources
+- [Google Maps JavaScript API V3 Reference](https://developers.google.com/maps/documentation/javascript/reference)
+- [Google Maps Markers](https://developers.google.com/maps/documentation/javascript/markers)
+- [Google Maps Infowindow](https://developers.google.com/maps/documentation/javascript/infowindows)
+- [All aria-* attribute](https://www.w3.org/TR/wai-aria-1.1/#state_prop_def)
+- [WebAIM Checklist for Accessibility](https://webaim.org/standards/wcag/checklist#sc1.4.6)
+- [Color Contrast Checker](https://webaim.org/resources/contrastchecker/)
+- [MediaWiki API help](https://en.wikipedia.org/w/api.php)
+- [Foursquare API endpoints](https://developer.foursquare.com/docs/api/endpoints)
+- [Google Map and React](https://stackoverflow.com/questions/34779489/rendering-a-google-map-without-react-google-map)
+- [React componentDidUpdate lifecycle event](https://reactjs.org/docs/react-component.html#unsafe_componentwillreceiveprops)
+- [Writing Scalable React Apps with the Component Folder Pattern](https://medium.com/styled-components/component-folder-pattern-ee42df37ec68)
+- [Throttle and Debounce used for input field](https://lodash.com/docs/4.17.10#debounce)
+- [react-throttle](https://github.com/gmcquistin/react-throttle)
+- [Refs in React](https://reactjs.org/docs/refs-and-the-dom.html)
